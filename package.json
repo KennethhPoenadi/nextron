@@ -64,7 +64,7 @@
     "find-up": "7.0.0",
     "fs-extra": "11.3.2",
     "get-port-please": "3.2.0",
-    "jiti": "^2.5.1",
+    "jiti": "2.6.1",
     "terser-webpack-plugin": "5.3.11",
     "tsconfig-paths-webpack-plugin": "4.2.0",
     "webpack": "5.97.1",
