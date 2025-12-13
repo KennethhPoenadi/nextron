@@ -7,16 +7,15 @@ export default defineConfig([
     format: ['cjs', 'esm'],
     banner: '#!/usr/bin/env node',
     dts: false,
-    // minify: process.env.NODE_ENV === 'production',
+    minify: process.env.NODE_ENV === 'production',
   },
   {
     entry: {
       'webpack.config': 'lib/configs/webpack.config.production.ts',
     },
     outDir: 'bin',
-    format: ['cjs', 'esm'],
+    format: ['esm'],
     dts: false,
-    // banner: '#!/usr/bin/env node',
-    // minify: process.env.NODE_ENV === 'production',
+    minify: process.env.NODE_ENV === 'production',
   },
 ])
