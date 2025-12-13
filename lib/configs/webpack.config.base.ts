@@ -8,7 +8,7 @@ import { getBabelConfig } from './getBabelConfig'
 const cwd = process.cwd()
 const isTs = fs.existsSync(path.join(cwd, 'tsconfig.json'))
 const ext = isTs ? '.ts' : '.js'
-const externals = require(path.join(cwd, 'package.json')).dependencies
+const externals = require(path.join(cwd, 'package.json')).dependencies // eslint-disable-line @typescript-eslint/no-require-imports
 
 const getBaseConfig = async () => {
   const { mainSrcDir } = await getNextronConfig()

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
+
 import fs from 'fs-extra'
 import path from 'path'
 import arg from 'arg'

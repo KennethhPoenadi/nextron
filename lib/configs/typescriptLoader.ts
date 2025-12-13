@@ -34,6 +34,7 @@ function TypeScriptLoader(options?: JitiOptions): LoaderAsync {
 
 export async function loadScriptFile<T = any>(filePath: string): Promise<T> {
   if (['.js', '.mjs', '.cjs'].includes(path.extname(filePath))) {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
     return require(filePath) as T
   }
   return TypeScriptLoader()(filePath) as T

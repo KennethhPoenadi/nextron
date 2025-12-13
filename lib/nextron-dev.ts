@@ -61,9 +61,9 @@ const execaOptions: execa.Options = {
     nextronConfig.startupDelay || args['--startup-delay'] || 10_000
 
   let firstCompile = true
-  let watching: webpack.Watching
+  let watching: webpack.Watching | undefined
   let mainProcess: ChildProcess
-  let rendererProcess: ChildProcess
+  let rendererProcess: ChildProcess // eslint-disable-line prefer-const
 
   const startMainProcess = () => {
     logger.info(
