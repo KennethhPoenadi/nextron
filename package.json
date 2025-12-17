@@ -33,14 +33,7 @@
     "types.d.ts"
   ],
   "bin": {
-    "nextron": "bin/nextron.mjs"
-  },
-  "exports": {
-    "./nextron": {
-      "import": "./bin/nextron.mjs",
-      "require": "./bin/nextron.cjs",
-      "default": "./bin/nextron.mjs"
-    }
+    "nextron": "bin/nextron.cjs"
   },
   "types": "types.d.ts",
   "scripts": {
