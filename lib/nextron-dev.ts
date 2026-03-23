@@ -82,13 +82,14 @@ const execaOptions: execa.Options = {
 
   const startRendererProcess = () => {
     logger.info(
-      `Run renderer process: next -p ${rendererPort} ${
+      `Run renderer process: next dev -p ${rendererPort} ${
         nextronConfig.rendererSrcDir || 'renderer'
       }`
     )
     const child = execa(
       'next',
       [
+        'dev',
         '-p',
         rendererPort.toString(),
         nextronConfig.rendererSrcDir || 'renderer',
