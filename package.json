@@ -67,18 +67,18 @@
     "webpack-merge": "6.0.1"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.2",
+    "@eslint/js": "^10.0.1",
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^20.14.2",
-    "eslint": "^9.39.2",
+    "eslint": "^10.1.0",
     "eslint-config-prettier": "^10.1.8",
     "lefthook": "^2.0.11",
     "lerna": "^9.0.3",
-    "prettier": "^3.7.4",
+    "prettier": "^3.8.1",
     "rimraf": "^6.1.2",
     "tsdown": "^0.17.3",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.49.0"
+    "typescript-eslint": "^8.57.2"
   }
 }
