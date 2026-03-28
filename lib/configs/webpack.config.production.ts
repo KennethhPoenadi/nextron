@@ -1,13 +1,14 @@
 import webpack from 'webpack'
 import { merge } from 'webpack-merge'
 import TerserPlugin from 'terser-webpack-plugin'
-import { getBaseConfig } from './webpack.config.base'
+import { getMainConfig } from './webpack.config.main'
 import { getNextronConfig } from './getNextronConfig'
 ;(async () => {
   const { webpack: userWebpack } = await getNextronConfig()
 
-  let config: webpack.Configuration = merge(await getBaseConfig(), {
+  let config: webpack.Configuration = merge(await getMainConfig(), {
     mode: 'production',
+    devtool: 'source-map',
     optimization: {
       minimizer: [
         new TerserPlugin({
@@ -25,7 +26,6 @@ import { getNextronConfig } from './getNextronConfig'
         'process.type': '"browser"',
       }),
     ],
-    devtool: 'source-map',
   })
 
   if (typeof userWebpack === 'function') {

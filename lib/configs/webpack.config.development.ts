@@ -1,13 +1,14 @@
 import webpack from 'webpack'
 import { merge } from 'webpack-merge'
 import { getNextronConfig } from './getNextronConfig'
-import { getBaseConfig } from './webpack.config.base'
+import { getMainConfig } from './webpack.config.main'
 
 const getConfig = async () => {
   const { webpack: userWebpack } = await getNextronConfig()
 
-  let config: webpack.Configuration = merge(await getBaseConfig(), {
+  let config: webpack.Configuration = merge(await getMainConfig(), {
     mode: 'development',
+    devtool: 'inline-source-map',
     plugins: [
       new webpack.EnvironmentPlugin({
         NODE_ENV: 'development',
@@ -16,7 +17,6 @@ const getConfig = async () => {
         debug: true,
       }),
     ],
-    devtool: 'inline-source-map',
   })
 
   if (typeof userWebpack === 'function') {

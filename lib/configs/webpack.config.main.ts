@@ -12,7 +12,7 @@ const pkg = require(path.join(cwd, 'package.json')) // eslint-disable-line @type
 const isEsm = pkg.type === 'module'
 const externals = pkg.dependencies
 
-const getBaseConfig = async () => {
+const getMainConfig = async () => {
   const { mainSrcDir } = await getNextronConfig()
   const backgroundPath = path.join(
     cwd,
@@ -73,4 +73,4 @@ const getBaseConfig = async () => {
   return baseConfig
 }
 
-export { getBaseConfig }
+export { getMainConfig }
