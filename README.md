@@ -114,7 +114,7 @@ Run `npm run build`, and nextron outputs packaged bundles under the `dist` folde
 ├── resources
 │   ├── icon.icns
 │   └── icon.ico
-├── nextron.config.js
+├── nextron.config.ts
 ├── electron-builder.yml
 ├── package.json
 └── tsconfig.json
