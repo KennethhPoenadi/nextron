@@ -18,7 +18,7 @@
 
 | next              | nextron         |
 | ----------------- | --------------- |
-| `v14.x` ~ `v16.x` | `v10.x`         |
+| `v16.x`           | `v10.x`         |
 | `v14.x` ~ `v16.x` | `v9.x`          |
 | `v12.x` ~ `v13.x` | `v8.x`          |
 | `v11.x`           | `v7.x`          |
@@ -81,15 +81,15 @@ Run `npm run build`, and nextron outputs packaged bundles under the `dist` folde
 }
 ```
 
-## Basic Directory Structures
+## Directory Structures
 
 ```
 .
 ├── main
-│   ├── background.ts
+│   ├── app.ts
 │   └── preload.ts
 ├── renderer
-│   ├── next.config.js
+│   ├── next.config.ts
 │   ├── pages
 │   │   ├── home.tsx
 │   │   └── next.tsx
@@ -104,8 +104,7 @@ Run `npm run build`, and nextron outputs packaged bundles under the `dist` folde
 ├── nextron.config.js
 ├── electron-builder.yml
 ├── package.json
-├── tsconfig.json
-└── README.md
+└── tsconfig.json
 ```
 
 ## `next.config.js`
