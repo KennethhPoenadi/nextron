@@ -4,6 +4,7 @@
   "description": "My application description",
   "version": "1.0.0",
   "author": "Yoshihide Shiono <shiono.yoshihide@gmail.com>",
+  "type": "module",
   "main": "app/main.js",
   "scripts": {
     "dev": "nextron",
@@ -15,13 +16,13 @@
     "electron-store": "^11.0.2"
   },
   "devDependencies": {
-    "@emotion/cache": "^11.11.0",
-    "@emotion/react": "^11.11.4",
+    "@emotion/cache": "^11.14.0",
+    "@emotion/react": "^11.14.0",
     "@emotion/server": "^11.11.0",
-    "@emotion/styled": "^11.11.5",
-    "@mui/icons-material": "^5.15.15",
-    "@mui/material": "^5.15.15",
-    "@mui/material-nextjs": "^5.15.11",
+    "@emotion/styled": "^11.14.1",
+    "@mui/icons-material": "^7.3.9",
+    "@mui/material": "^7.3.9",
+    "@mui/material-nextjs": "^7.3.9",
     "@types/node": "^20.11.16",
     "@types/react": "^19.2.14",
     "electron": "^41.0.3",

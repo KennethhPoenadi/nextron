@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   Html,
   Head,
@@ -11,8 +10,8 @@ import {
   DocumentHeadTags,
   DocumentHeadTagsProps,
   documentGetInitialProps,
-} from '@mui/material-nextjs/v14-pagesRouter'
-import theme, { roboto } from '../lib/theme'
+} from '@mui/material-nextjs/v16-pagesRouter'
+import { roboto, theme } from '../lib/theme'
 
 export default function MyDocument(
   props: DocumentProps & DocumentHeadTagsProps
@@ -21,8 +20,6 @@ export default function MyDocument(
     <Html lang="en" className={roboto.className}>
       <Head>
         <meta name="theme-color" content={theme.palette.primary.main} />
-        <link rel="shortcut icon" href="/favicon.ico" />
-        <meta name="emotion-insertion-point" content="" />
         <DocumentHeadTags {...props} />
       </Head>
       <body>
