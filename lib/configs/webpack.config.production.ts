@@ -24,7 +24,7 @@ import { getNextronConfig } from './getNextronConfig'
   })
 
   if (typeof userWebpack === 'function') {
-    config = userWebpack(config, 'development')
+    config = userWebpack(config, 'production')
   }
 
   const compiler = webpack(config)
