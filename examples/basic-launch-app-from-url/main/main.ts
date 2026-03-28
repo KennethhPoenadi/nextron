@@ -1,7 +1,7 @@
 import path from 'path'
-import { app, ipcMain } from 'electron'
+import { app, ipcMain, BrowserWindow } from 'electron'
 import serve from 'electron-serve'
-import { createWindow } from './helpers'
+import { createWindow } from './helpers/create-window'
 
 const isProd: boolean = process.env.NODE_ENV === 'production'
 
@@ -12,7 +12,7 @@ if (isProd) {
 }
 
 let windowIsReady = false
-let mainWindow = null
+let mainWindow: BrowserWindow | null = null
 
 const getMainWindowWhenReady = async () => {
   if (!windowIsReady) {
@@ -35,7 +35,7 @@ const getMainWindowWhenReady = async () => {
     width: 1000,
     height: 600,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
+      preload: path.join(import.meta.dirname, 'preload.js'),
     },
   })
 
@@ -52,13 +52,15 @@ app.on('window-all-closed', () => {
   app.quit()
 })
 
-function checkLauncherUrl(getMainWindow) {
+function checkLauncherUrl(getMainWindow: () => Promise<BrowserWindow | null>) {
   if (process.platform === 'darwin') {
     app.on('open-url', async (_event, url) => {
       const mainWindow = await getMainWindow()
-      mainWindow.webContents.send('launcher-url', url)
-      if (mainWindow.isMinimized()) {
-        mainWindow.restore()
+      if (mainWindow) {
+        mainWindow.webContents.send('launcher-url', url)
+        if (mainWindow.isMinimized()) {
+          mainWindow.restore()
+        }
       }
     })
   }
@@ -74,27 +76,30 @@ function checkLauncherUrl(getMainWindow) {
 
     app.on('second-instance', async (_event, args) => {
       const mainWindow = await getMainWindow()
+      if (mainWindow) {
+        const url = args.find((arg) =>
+          arg.startsWith(`${'your-custom-protocol-scheme'}://`)
+        )
+        if (url) {
+          mainWindow.webContents.send('launcher-url', url)
+        }
 
-      const url = args.find((arg) =>
-        arg.startsWith(`${'your-custom-protocol-scheme'}://`)
-      )
-      if (url) {
-        mainWindow.webContents.send('launcher-url', url)
+        if (mainWindow.isMinimized()) {
+          mainWindow.restore()
+        }
+        mainWindow.focus()
       }
-
-      if (mainWindow.isMinimized()) {
-        mainWindow.restore()
-      }
-      mainWindow.focus()
     })
 
     const url = process.argv.find((arg) =>
       arg.startsWith(`${'your-custom-protocol-scheme'}://`)
     )
     if (url) {
-      getMainWindow().then((mainWindow) =>
-        mainWindow.webContents.send('launcher-url', url)
-      )
+      getMainWindow().then((mainWindow) => {
+        if (mainWindow) {
+          mainWindow.webContents.send('launcher-url', url)
+        }
+      })
     }
   }
 

@@ -22,8 +22,6 @@ $ pnpm dlx create-nextron-app my-app --example basic-typescript
 ### Install Dependencies
 
 ```
-$ cd my-app
-
 # using yarn or npm
 $ yarn (or `npm install`)
 
@@ -31,10 +29,9 @@ $ yarn (or `npm install`)
 $ pnpm install --shamefully-hoist
 ```
 
-### Build it (production mode)
+### Production Build
 
 ```
-# production build
 $ yarn build (or `npm run build` or `pnpm run build`)
 ```
 

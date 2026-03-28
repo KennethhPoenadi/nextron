@@ -2,6 +2,7 @@
   "private": true,
   "name": "my-nextron-app",
   "description": "My application description",
+  "type": "module",
   "version": "1.0.0",
   "author": "Yoshihide Shiono <shiono.yoshihide@gmail.com>",
   "main": "app/main.js",

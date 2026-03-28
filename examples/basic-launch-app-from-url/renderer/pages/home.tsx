@@ -7,16 +7,11 @@ export default function HomePage() {
   const [launcherUrl, setLauncherUrl] = React.useState('')
 
   React.useEffect(() => {
-    ;(async () => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const { api } = window as any
+    window.api.onLauncherUrl((url: string) => {
+      setLauncherUrl(url)
+    })
 
-      api.onLauncherUrl((url: string) => {
-        setLauncherUrl(url)
-      })
-
-      api.setWindowIsReady(true)
-    })()
+    window.api.setWindowIsReady(true)
   }, [])
 
   return (
