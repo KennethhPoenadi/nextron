@@ -7,11 +7,15 @@ node_modules
 bin
 workspace
 
+# security reports
+reports/
+
 # examples
 examples/**/yarn.lock
 examples/**/package-lock.json
 examples/**/pnpm-lock.yaml
 examples/**/renderer/next-env.d.ts
+examples/**/renderer/.next/
 
 # misc
 .idea
